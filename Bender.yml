@@ -27,7 +27,7 @@ dependencies:
   timer_unit:             { git: "https://github.com/pulp-platform/timer_unit.git", version: =1.0.2 }
   common_cells:           { git: "https://github.com/pulp-platform/common_cells.git", version: =1.38.0 }
   tech_cells_generic:     { git: "https://github.com/pulp-platform/tech_cells_generic.git", version: =0.2.3 }
-  flex-v:                 { git: "https://github.com/pulp-platform/flex-v.git", rev: e9355c2f6ec4c105abdff39489e5d1be93bc4374 }
+  flex-v:                 { git: "https://github.com/AjeongShin/flex-v-PACE.git", rev: 0f7f1be468604ee180e0a76697ca28c577664ade } # PACE-enabled RI5CY fork
   cv32e40p:               { git: "https://github.com/pulp-platform/cv32e40p.git", rev: astral-v1.0 }
   ibex:                   { git: "https://github.com/pulp-platform/ibex.git", rev: "pulpissimo-v6.1.2" }
   scm:                    { git: "https://github.com/pulp-platform/scm.git", rev: v1.2.0 }
@@ -37,6 +37,7 @@ dependencies:
   redmule:                { git: "https://github.com/pulp-platform/redmule.git", version: =2.0.4 }
   neureka:                { git: "https://github.com/pulp-platform/neureka.git", rev: f4e131c } # branch: lg/astral-v1.1
   softex:                 { git: "https://github.com/belanoa/softex.git"       , rev: astral-v1.0 }
+  fpnew:                  { git: "https://github.com/arpansur/cvfpu.git", rev: pace-pipe-rebase } # override fpnew to Arpan's PACE version
 
 export_include_dirs:
   - include
@@ -74,6 +75,7 @@ sources:
   - rtl/data_periph_demux.sv
   - rtl/core_demux_wrap.sv
   - rtl/core_region.sv
+  - rtl/pace_param_mem.sv
   - target: simulation
     files:
     defines:

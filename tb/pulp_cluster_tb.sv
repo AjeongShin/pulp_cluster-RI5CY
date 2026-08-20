@@ -303,7 +303,7 @@ module pulp_cluster_tb;
     UseHci: 1,
     TcdmSize: 256*1024,
     TcdmNumBank: 16,
-    HwpePresent: 1,
+    HwpePresent: 0, // the PACE coefficient memory occupies the accelerator config slot
     HwpeCfg: '{NumHwpes: 3, HwpeList: {SOFTEX, NEUREKA, REDMULE}},
     HwpeNumPorts: 9,
     HMRPresent: 1,

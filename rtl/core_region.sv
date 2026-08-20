@@ -99,6 +99,8 @@ import rapid_recovery_pkg::*;
 
   output core_data_req_t                 core_data_req_o,
   input  core_data_rsp_t                 core_data_rsp_i,
+  output logic [4:0]                     pace_mode_o,     // PACE: CSR_PACE mode/config (CV32 path)
+  input  logic [2079:0]                  pace_param_i,    // PACE: coefficients from the cluster memory
   output logic                           apu_master_req_o,
   input logic                            apu_master_gnt_i,
   // request channel
@@ -199,6 +201,7 @@ import rapid_recovery_pkg::*;
         // Atomic operation
         .data_atop_o           ( /* Unconnected */           ),
         // apu-interconnect
+        .pace_mode_o           ( pace_mode_o                 ),
         // Handshake
         .apu_req_o             ( apu_master_req_o            ),
         .apu_gnt_i             ( apu_master_gnt_i            ),
@@ -269,6 +272,8 @@ import rapid_recovery_pkg::*;
         .data_wdata_o          ( core_data_req_o.data        ),
         .data_rdata_i          ( core_data_rsp_i.r_data      ),
         .data_unaligned_o      (         /* Unused */        ),
+        // PACE: coefficients reach the FPU inside the core (RI5CY uses a private FPU)
+        .pace_param_i          ( pace_param_i                ),
         // apu-interconnect
         // Handshake
         .apu_master_req_o      ( apu_master_req_o            ),
